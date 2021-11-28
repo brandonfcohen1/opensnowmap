@@ -3,7 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Header from "./Header/Header";
 
-const LeafletMap = dynamic(() => import("./LeafletMap/LeafletMap.tsx"), {
+const LeafletMap = dynamic(() => import("./LeafletMap/LeafletMap.jsx"), {
   ssr: false,
 });
 

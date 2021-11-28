@@ -14,18 +14,15 @@ const latlngDisp = (ll) => {
 export default function SnowCoverage() {
   const map = useMap();
 
-  L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
+  // const snowDepthLayer = esri
+  //   .dynamicMapLayer({
+  //     url: "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Observations/NOHRSC_Snow_Analysis/MapServer",
+  //     opacity: 0.5,
+  //     f: "image",
+  //   })
+  //   .addTo(map);
 
-  esri
-    .dynamicMapLayer({
-      url: "https://idpgis.ncep.noaa.gov/arcgis/rest/services/NWS_Observations/NOHRSC_Snow_Analysis/MapServer",
-      opacity: 0.5,
-      f: "image",
-    })
-    .addTo(map);
+  
 
   map.on("click", function (e) {
     esri
@@ -59,5 +56,6 @@ export default function SnowCoverage() {
           .openOn(map);
       });
   });
-  return null;
+
+  return snowDepthLayer;
 }
